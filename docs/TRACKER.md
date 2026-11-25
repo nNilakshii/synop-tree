@@ -12,21 +12,21 @@
 
 ## Now
 - **Current phase:** 0
-- **Current task:** P0.1.8
+- **Current task:** P0.1.9
 - **Started:** ____ (PT)
 
 ## Progress
 
 | Phase | Name | Tasks | Done | Est. h | Start (PT) | End (PT) |
 |---|---|---|---|---|---|---|
-| 0 | Foundations & MCP 101 | 30 | 11 | 12 | | |
+| 0 | Foundations & MCP 101 | 30 | 12 | 12 | | |
 | 1 | Walking skeleton | 24 | 0 | 16 | | |
 | 2 | Robust indexer | 44 | 0 | 30 | | |
 | 3 | Search + production MCP server | 36 | 0 | 26 | | |
 | 4 | Incremental updates | 27 | 0 | 24 | | |
 | 5 | Evaluation | 40 | 0 | 42 | | |
 | 6 | Ship | 17 | 0 | 16 | | |
-| | **Total** | **218** | **11** | **~166** | | |
+| | **Total** | **218** | **12** | **~166** | | |
 
 ---
 
@@ -41,7 +41,7 @@
 - [x] **P0.1.5** Add dev deps: ruff, pyright, pytest, pytest-asyncio, pre-commit. Config lives in `pyproject.toml`. *Done when:* `uv run ruff check .` and `uv run pyright` run clean.
 - [x] **P0.1.6** `Makefile` with `fmt`, `lint`, `typecheck`, `test`, `check`, `db-up`, `db-down`. *Done when:* `make check` passes on an empty test.
 - [x] **P0.1.7** `.pre-commit-config.yaml` (ruff, ruff-format, end-of-file-fixer, check-yaml). *Done when:* `pre-commit run --all-files` passes.
-- [ ] **P0.1.8** GitHub Actions workflow: `uv sync` + `make check` on push/PR, no secrets. *Done when:* the badge is green.
+- [x] **P0.1.8** GitHub Actions workflow: `uv sync` + `make check` on push/PR, no secrets. *Done when:* the badge is green.
 - [ ] **P0.1.9** `.env.example` (§15), `.env` in `.gitignore`, `src/synop_tree/config.py` with pydantic-settings loading `.env` + `config.yaml`. *Done when:* a unit test loads config from a temp yaml.
 - [ ] **P0.1.10** `docker-compose.yml` with `pgvector/pgvector:pg16`, a healthcheck and a named volume. *Done when:* `make db-up` → `psql -c "CREATE EXTENSION vector;"` succeeds.
 - [x] **P0.1.11** Copy `PROJECT.md` and `TRACKER.md` into `docs/`. Create `docs/adr/`, `docs/notes/`, `docs/results/`. *Done when:* committed.

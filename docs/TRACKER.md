@@ -12,21 +12,21 @@
 
 ## Now
 - **Current phase:** 0
-- **Current task:** P0.3.1
+- **Current task:** P0.3.2
 - **Started:** ____ (PT)
 
 ## Progress
 
 | Phase | Name | Tasks | Done | Est. h | Start (PT) | End (PT) |
 |---|---|---|---|---|---|---|
-| 0 | Foundations & MCP 101 | 30 | 19 | 12 | | |
+| 0 | Foundations & MCP 101 | 30 | 20 | 12 | | |
 | 1 | Walking skeleton | 24 | 0 | 16 | | |
 | 2 | Robust indexer | 44 | 0 | 30 | | |
 | 3 | Search + production MCP server | 36 | 0 | 26 | | |
 | 4 | Incremental updates | 27 | 0 | 24 | | |
 | 5 | Evaluation | 40 | 0 | 42 | | |
 | 6 | Ship | 17 | 0 | 16 | | |
-| | **Total** | **218** | **19** | **~166** | | |
+| | **Total** | **218** | **20** | **~166** | | |
 
 ---
 
@@ -57,7 +57,7 @@
 - [x] **P0.2.8** `docs/notes/learning-log.md` template (date, task ID, what I learned, what surprised me). *Done when:* the first entry is written.
 
 ### P0.3 MCP 101 (learning)
-- [ ] **P0.3.1** Read the MCP 2026-07-28 spec: Architecture, Base Protocol, Server Features, Security. Write ≤ 15 lines of notes in `docs/notes/mcp.md` (stateless requests, `_meta`, tools/resources/prompts, deprecations). *Done when:* notes committed.
+- [x] **P0.3.1** Read the MCP 2026-07-28 spec: Architecture, Base Protocol, Server Features, Security. Write ≤ 15 lines of notes in `docs/notes/mcp.md` (stateless requests, `_meta`, tools/resources/prompts, deprecations). *Done when:* notes committed.
 - [ ] **P0.3.2** Read Python SDK v2 docs (quickstart, what's new, migration). Confirm the import paths used in PROJECT.md §12.1 and fix the doc if they differ. Pin the `mcp` version. *Done when:* PROJECT.md §12.1 verified.
 - [ ] **P0.3.3** `toys/hello_server.py`: `MCPServer("hello")` with 1 tool (`add(a,b)`), 1 resource template (`hello://greeting/{name}`), 1 prompt. *Done when:* it runs over stdio without errors.
 - [ ] **P0.3.4** Connect MCP Inspector over stdio. Call the tool, read the resource, get the prompt. *Done when:* screenshot in `docs/notes/`.

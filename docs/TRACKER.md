@@ -19,14 +19,14 @@
 
 | Phase | Name | Tasks | Done | Est. h | Start (PT) | End (PT) |
 |---|---|---|---|---|---|---|
-| 0 | Foundations & MCP 101 | 30 | 25 | 12 | | |
+| 0 | Foundations & MCP 101 | 30 | 26 | 12 | | |
 | 1 | Walking skeleton | 24 | 0 | 16 | | |
 | 2 | Robust indexer | 44 | 0 | 30 | | |
 | 3 | Search + production MCP server | 36 | 0 | 26 | | |
 | 4 | Incremental updates | 27 | 0 | 24 | | |
 | 5 | Evaluation | 40 | 0 | 42 | | |
 | 6 | Ship | 17 | 0 | 16 | | |
-| | **Total** | **218** | **25** | **~166** | | |
+| | **Total** | **218** | **26** | **~166** | | |
 
 ---
 
@@ -64,7 +64,7 @@
 - [x] **P0.3.5** Run the same server over Streamable HTTP (`127.0.0.1:8000/mcp`) and connect Inspector. *Done when:* the tool call works over HTTP.
 - [ ] **P0.3.6** Register in Claude Code (`claude mcp add --transport stdio hello -- uv run python toys/hello_server.py`) and ask Claude to use the tool. *Done when:* `/mcp` shows connected and the tool call appears in the transcript.
 - [x] **P0.3.7** In-memory test: `async with Client(server)` → call `add`. *Done when:* the pytest passes.
-- [ ] **P0.3.8** Experiment: add a `print()` in a stdio tool, observe the breakage in Inspector, then fix it with stderr logging. *Done when:* the learning log entry is written.
+- [x] **P0.3.8** Experiment: add a `print()` in a stdio tool, observe the breakage in Inspector, then fix it with stderr logging. *Done when:* the learning log entry is written.
 - [x] **P0.3.9** `toys/hello_client.py`: connect over stdio, `list_tools`, call `add`, print the result. *Done when:* the script prints the correct sum.
 - [ ] **P0.3.10** Anthropic API smoke test: one Messages call with a single tool (tool_use round trip), printing token usage. *Done when:* the script works with your key.
 - [ ] **P0.3.11** Mini-exercise: in `hello_client.py`, convert MCP tool schemas → Anthropic tool definitions and let Claude call `add` through MCP (a 40-line agent loop). *Done when:* Claude answers "what is 17+25" via the MCP tool. *(This is the seed of the eval bridge, P5.3.5.)*

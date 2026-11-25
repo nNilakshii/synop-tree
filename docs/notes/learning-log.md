@@ -11,6 +11,13 @@ One entry per task where something was non-obvious. Newest first. Dates in PT.
 
 ---
 
+## 2026-11-24 · P0.3.8: print() in a stdio tool
+**Learned:** a `print()` inside a stdio tool writes straight onto the JSON-RPC channel. With a scratch copy of `hello_server.py` whose `add` printed `adding 1 and 2`, the raw stdout held that line where a JSON-RPC message belonged. The fix is what `hello_server.py` already does: `logging` to stderr (structlog → stderr in `mcp_server/`, plus ruff `T20` bans `print` in `src/`).
+
+**Surprised me:** the SDK v2 client (`mcp==2.3.0`) didn't break. It logged `Failed to parse JSONRPC message from server` (pydantic `json_invalid`, input `'adding 1 and 2'`), dropped the line, and `add` still returned 3. So a stray *whole line* is noisy but survivable with this client. Other clients (Inspector, Claude Code) may be stricter. Still open: a `print(..., end="")` (no newline) showed up on stderr, not glued to the next message as I expected. And in a raw pipe test, closing stdin right after `tools/call` seemed to lose the response. Neither is understood yet.
+
+**Next time:** repeat the experiment in MCP Inspector (P0.3.4 setup) to see how a stricter client reacts, and look at how the SDK's stdio server wraps stdout.
+
 ## 2026-11-24 · P0.1.1–P0.2.7: Phase 0 setup
 **Learned:**
 - `uv init --package` gives a `uv_build` backend pinned to the uv minor version (`>=0.13.10,<0.14.0`), so upgrading uv past a minor version means bumping `[build-system]` too.

@@ -1,6 +1,6 @@
 """Configuration: secrets from the environment / `.env`, everything else from `config.yaml` (§15).
 
-Model IDs and budget caps have no defaults on purpose: they must come from `config.yaml`.
+LLM model IDs and budget caps have no defaults on purpose: they must come from `config.yaml`.
 """
 
 import os
@@ -95,7 +95,9 @@ def load_config(
 ) -> Config:
     """Load `config.yaml` (or `$SYNOP_CONFIG`) plus secrets. `env_file=None` skips `.env`."""
     path = path or Path(os.environ.get("SYNOP_CONFIG", DEFAULT_CONFIG_PATH))
-    raw: Any = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    raw: Any = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if raw is None:  # empty file
+        raw = {}
     if not isinstance(raw, dict):
         raise ValueError(f"{path}: top level must be a mapping")
     data: dict[str, Any] = dict(raw)  # pyright: ignore[reportUnknownArgumentType]

@@ -84,3 +84,24 @@ def test_repo_config_yaml_is_valid() -> None:
     config = load_config(root / "config.yaml", env_file=None)
 
     assert config.embeddings.dim == 384
+
+
+def test_secrets_key_in_yaml_is_rejected(tmp_path: Path) -> None:
+    cfg, env = _write(tmp_path, MINIMAL_YAML + "secrets: {}\n")
+
+    with pytest.raises(ValueError, match=r"secrets belong in \.env"):
+        load_config(cfg, env_file=env)
+
+
+def test_non_mapping_yaml_is_rejected(tmp_path: Path) -> None:
+    cfg, env = _write(tmp_path, "[]\n")
+
+    with pytest.raises(ValueError, match="top level must be a mapping"):
+        load_config(cfg, env_file=env)
+
+
+def test_synop_config_env_var_sets_path(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    cfg, env = _write(tmp_path, MINIMAL_YAML)
+    monkeypatch.setenv("SYNOP_CONFIG", str(cfg))
+
+    assert load_config(env_file=env).models.upper == "model-upper"

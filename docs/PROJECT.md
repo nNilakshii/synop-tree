@@ -667,6 +667,8 @@ ignore:
 ```
 `pricing.yaml`: per-model input/output/cache prices, copied from Anthropic's pricing page, with the date checked.
 
+Loading (`synop_tree/config.py`): `config.yaml` is read from `./config.yaml` or the path in `SYNOP_CONFIG`; unknown keys are errors. Secrets come from real env vars first, then `./.env`. Relative paths (`workspace_dir`, `.env`) resolve against the current directory, not the config file's directory.
+
 ---
 
 ## 16. Repository layout

@@ -489,11 +489,13 @@ Tools always show `summary_status`, so the agent knows when it's reading a stale
 
 ### 12.1 Protocol notes (2026-07-28 spec, Python SDK v2)
 - Server class: `from mcp.server import MCPServer`. Tools/resources/prompts via `@mcp.tool()`, `@mcp.resource("synop://...")`, `@mcp.prompt()`. Input schemas come from type hints + docstrings.
-- Transports: `stdio` (Claude Code, eval harness) and `streamable-http` (remote/dogfooding/Inspector). Transport options go to `run()`, not the constructor. For FastAPI, mount `streamable_http_app()`.
+- Transports: `stdio` (Claude Code, eval harness) and `streamable-http` (remote/dogfooding/Inspector). Transport options go to `run()`, not the constructor (`run(transport="streamable-http", host="127.0.0.1", port=8765)`; default path `/mcp`). For FastAPI, mount `streamable_http_app()` **and enter `mcp.session_manager.run()` in the host app's lifespan** (mounted sub-app lifespans don't run). Host/Origin checks: `TransportSecuritySettings` (`mcp.server.transport_security`); non-localhost Hosts get 421 until allowed.
+- Errors: raise `ToolError` (`mcp.server.mcpserver.exceptions`) → `is_error=True` with our message (any other exception hides the message). `ResourceNotFoundError` → -32602. Sync tool functions run in a worker thread; `async def` runs on the loop.
 - **Stateless:** there's no session handshake, so the server keeps **no per-client state**. Anything that needs continuity (pagination) goes into an opaque, self-contained cursor.
 - **Deprecated in this spec, so don't build on them:** Logging (`ctx.info` etc.), Sampling, Roots, HTTP+SSE transport. Log with `structlog` to **stderr**.
 - **Testing:** `from mcp import Client` → `async with Client(server) as c:` runs fully in memory with no transport.
-- **Stretch (spec extensions):** expose `request_reindex` as a long-running operation via the Tasks extension (`io.modelcontextprotocol/tasks`), and push snapshot-published notifications via subscriptions (`ctx.notify_resource_updated`).
+- **Stretch (spec extensions):** expose `request_reindex` as a long-running operation via the Tasks extension (`io.modelcontextprotocol/tasks`), and push snapshot-published notifications via subscriptions (`ctx.notify_resource_updated`). Note: SDK v2 removed its experimental Tasks helpers; only the wire types exist (`mcp_types`), so Tasks would need hand-written handlers.
+- **Verified (P0.3.2, 2026-11-24) against `mcp==2.3.0`** (pinned): `from mcp.server import MCPServer` (same class as `mcp.server.mcpserver.MCPServer`), `@mcp.tool/resource/prompt`, `run()`, `streamable_http_app()`, `from mcp import Client, StdioServerParameters`, `ctx.notify_resource_updated`. Python attributes are snake_case (`structured_content`, `is_error`, `next_cursor`); JSON stays camelCase. v1 `FastMCP` is gone.
 - Re-read the spec's Server Features + Security pages in P0.3.1. If the SDK API differs from the names here, follow the SDK docs and update this section.
 
 ### 12.2 Tool surface (≤ 7 tools. More tools confuse agents)

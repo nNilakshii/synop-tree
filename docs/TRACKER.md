@@ -12,21 +12,21 @@
 
 ## Now
 - **Current phase:** 0
-- **Current task:** P0.1.1
+- **Current task:** P0.1.4
 - **Started:** ____ (PT)
 
 ## Progress
 
 | Phase | Name | Tasks | Done | Est. h | Start (PT) | End (PT) |
 |---|---|---|---|---|---|---|
-| 0 | Foundations & MCP 101 | 30 | 3 | 12 | | |
+| 0 | Foundations & MCP 101 | 30 | 4 | 12 | | |
 | 1 | Walking skeleton | 24 | 0 | 16 | | |
 | 2 | Robust indexer | 44 | 0 | 30 | | |
 | 3 | Search + production MCP server | 36 | 0 | 26 | | |
 | 4 | Incremental updates | 27 | 0 | 24 | | |
 | 5 | Evaluation | 40 | 0 | 42 | | |
 | 6 | Ship | 17 | 0 | 16 | | |
-| | **Total** | **218** | **3** | **~166** | | |
+| | **Total** | **218** | **4** | **~166** | | |
 
 ---
 
@@ -34,7 +34,7 @@
 **Exit:** CI green on an empty package. A toy MCP server works in MCP Inspector (stdio + HTTP) and in Claude Code. Claude Code workflow (CLAUDE.md, commands, hooks) set up.
 
 ### P0.1 Machine and repo setup
-- [ ] **P0.1.1** Install/verify `uv`, Python 3.12, Docker Desktop, git ≥ 2.40, Node ≥ 20 (for `npx` Inspector), ripgrep (`rg`), Claude Code CLI + VS Code extension. *Done when:* every `--version` prints and is noted in `docs/notes/setup.md`.
+- [x] **P0.1.1** Install/verify `uv`, Python 3.12, Docker Desktop, git ≥ 2.40, Node ≥ 20 (for `npx` Inspector), ripgrep (`rg`), Claude Code CLI + VS Code extension. *Done when:* every `--version` prints and is noted in `docs/notes/setup.md`.
 - [x] **P0.1.2** Choose the final project name. Check GitHub + PyPI availability. *Done when:* the name is free on both and recorded in Decision log.
 - [x] **P0.1.3** Create the public GitHub repo (MIT license, Python `.gitignore`) and clone it. *Done when:* first commit pushed.
 - [ ] **P0.1.4** `uv init --package`, `requires-python = ">=3.12"`, `src/synop_tree/__init__.py`. *Done when:* `uv run python -c "import synop_tree"` works.

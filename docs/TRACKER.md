@@ -12,21 +12,21 @@
 
 ## Now
 - **Current phase:** 0
-- **Current task:** P0.2.8
+- **Current task:** P0.3.1
 - **Started:** ____ (PT)
 
 ## Progress
 
 | Phase | Name | Tasks | Done | Est. h | Start (PT) | End (PT) |
 |---|---|---|---|---|---|---|
-| 0 | Foundations & MCP 101 | 30 | 17 | 12 | | |
+| 0 | Foundations & MCP 101 | 30 | 18 | 12 | | |
 | 1 | Walking skeleton | 24 | 0 | 16 | | |
 | 2 | Robust indexer | 44 | 0 | 30 | | |
 | 3 | Search + production MCP server | 36 | 0 | 26 | | |
 | 4 | Incremental updates | 27 | 0 | 24 | | |
 | 5 | Evaluation | 40 | 0 | 42 | | |
 | 6 | Ship | 17 | 0 | 16 | | |
-| | **Total** | **218** | **17** | **~166** | | |
+| | **Total** | **218** | **18** | **~166** | | |
 
 ---
 
@@ -54,7 +54,7 @@
 - [x] **P0.2.5** PostToolUse hook: `ruff format` on edited `*.py`. *Done when:* an unformatted edit gets auto-formatted.
 - [ ] **P0.2.6** Subagent `.claude/agents/reviewer.md` (correctness, security, tests, PROJECT.md rules). *Done when:* it reviews one diff with useful comments.
 - [x] **P0.2.7** Slash command `.claude/commands/adr.md` that drafts `docs/adr/NNN-*.md`. Create ADR-001…012 stubs from §6. *Done when:* the 12 files exist.
-- [ ] **P0.2.8** `docs/notes/learning-log.md` template (date, task ID, what I learned, what surprised me). *Done when:* the first entry is written.
+- [x] **P0.2.8** `docs/notes/learning-log.md` template (date, task ID, what I learned, what surprised me). *Done when:* the first entry is written.
 
 ### P0.3 MCP 101 (learning)
 - [ ] **P0.3.1** Read the MCP 2026-07-28 spec: Architecture, Base Protocol, Server Features, Security. Write ≤ 15 lines of notes in `docs/notes/mcp.md` (stateless requests, `_meta`, tools/resources/prompts, deprecations). *Done when:* notes committed.

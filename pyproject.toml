@@ -1,0 +1,14 @@
+[project]
+name = "synop-tree"
+version = "0.0.1"
+description = "Hierarchical repo context for coding agents, served over MCP."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = []
+
+# CLI entry points (`synop`, alias `synop-tree`) are added with the typer CLI in P1.1.1.
+
+[build-system]
+requires = ["uv_build>=0.13.10,<0.14.0"]
+build-backend = "uv_build"

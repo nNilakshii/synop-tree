@@ -12,21 +12,21 @@
 
 ## Now
 - **Current phase:** 0
-- **Current task:** P0.1.4
+- **Current task:** P0.1.5
 - **Started:** ____ (PT)
 
 ## Progress
 
 | Phase | Name | Tasks | Done | Est. h | Start (PT) | End (PT) |
 |---|---|---|---|---|---|---|
-| 0 | Foundations & MCP 101 | 30 | 4 | 12 | | |
+| 0 | Foundations & MCP 101 | 30 | 5 | 12 | | |
 | 1 | Walking skeleton | 24 | 0 | 16 | | |
 | 2 | Robust indexer | 44 | 0 | 30 | | |
 | 3 | Search + production MCP server | 36 | 0 | 26 | | |
 | 4 | Incremental updates | 27 | 0 | 24 | | |
 | 5 | Evaluation | 40 | 0 | 42 | | |
 | 6 | Ship | 17 | 0 | 16 | | |
-| | **Total** | **218** | **4** | **~166** | | |
+| | **Total** | **218** | **5** | **~166** | | |
 
 ---
 
@@ -37,7 +37,7 @@
 - [x] **P0.1.1** Install/verify `uv`, Python 3.12, Docker Desktop, git ≥ 2.40, Node ≥ 20 (for `npx` Inspector), ripgrep (`rg`), Claude Code CLI + VS Code extension. *Done when:* every `--version` prints and is noted in `docs/notes/setup.md`.
 - [x] **P0.1.2** Choose the final project name. Check GitHub + PyPI availability. *Done when:* the name is free on both and recorded in Decision log.
 - [x] **P0.1.3** Create the public GitHub repo (MIT license, Python `.gitignore`) and clone it. *Done when:* first commit pushed.
-- [ ] **P0.1.4** `uv init --package`, `requires-python = ">=3.12"`, `src/synop_tree/__init__.py`. *Done when:* `uv run python -c "import synop_tree"` works.
+- [x] **P0.1.4** `uv init --package`, `requires-python = ">=3.12"`, `src/synop_tree/__init__.py`. *Done when:* `uv run python -c "import synop_tree"` works.
 - [ ] **P0.1.5** Add dev deps: ruff, pyright, pytest, pytest-asyncio, pre-commit. Config lives in `pyproject.toml`. *Done when:* `uv run ruff check .` and `uv run pyright` run clean.
 - [ ] **P0.1.6** `Makefile` with `fmt`, `lint`, `typecheck`, `test`, `check`, `db-up`, `db-down`. *Done when:* `make check` passes on an empty test.
 - [ ] **P0.1.7** `.pre-commit-config.yaml` (ruff, ruff-format, end-of-file-fixer, check-yaml). *Done when:* `pre-commit run --all-files` passes.

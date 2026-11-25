@@ -5,7 +5,7 @@ Checked: 2026-11-24 23:33 PST · macOS 26.5 (Apple silicon)
 | Tool | Required | Installed | Path |
 |---|---|---|---|
 | uv | any recent | 0.13.10 | `~/.local/bin/uv` |
-| Python | 3.12 | 3.12.5 | `/opt/homebrew/opt/python@3.12/bin/python3.12` (what `uv python find 3.12` picks) |
+| Python | 3.12 | 3.12.9 | `/opt/homebrew/opt/python@3.12/bin/python3.12` (what `uv python find 3.12` picks; bare `python3` on PATH is a separate 3.12.5) |
 | git | ≥ 2.40 | 2.46.1 | `/opt/homebrew/bin/git` |
 | Node | ≥ 20 (for `npx` MCP Inspector) | 20.19.0 | |
 | npx | (ships with Node) | 10.8.2 | |

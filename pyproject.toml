@@ -5,7 +5,11 @@ description = "Hierarchical repo context for coding agents, served over MCP."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pydantic>=2.14.4",
+    "pydantic-settings>=2.16.3",
+    "pyyaml>=6.0.4",
+]
 
 # CLI entry points (`synop`, alias `synop-tree`) are added with the typer CLI in P1.1.1.
 
@@ -20,6 +24,7 @@ dev = [
     "pytest>=9.2.0",
     "pytest-asyncio>=1.5.0",
     "ruff>=0.17.6",
+    "types-pyyaml>=6.0.12.20261122",
 ]
 
 [tool.ruff]
@@ -52,6 +57,7 @@ select = [
 include = ["src", "tests"]
 pythonVersion = "3.12"
 typeCheckingMode = "strict"
+reportUnnecessaryTypeIgnoreComment = "error"
 venvPath = "."
 venv = ".venv"
 

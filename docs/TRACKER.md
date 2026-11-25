@@ -19,14 +19,14 @@
 
 | Phase | Name | Tasks | Done | Est. h | Start (PT) | End (PT) |
 |---|---|---|---|---|---|---|
-| 0 | Foundations & MCP 101 | 30 | 24 | 12 | | |
+| 0 | Foundations & MCP 101 | 30 | 25 | 12 | | |
 | 1 | Walking skeleton | 24 | 0 | 16 | | |
 | 2 | Robust indexer | 44 | 0 | 30 | | |
 | 3 | Search + production MCP server | 36 | 0 | 26 | | |
 | 4 | Incremental updates | 27 | 0 | 24 | | |
 | 5 | Evaluation | 40 | 0 | 42 | | |
 | 6 | Ship | 17 | 0 | 16 | | |
-| | **Total** | **218** | **24** | **~166** | | |
+| | **Total** | **218** | **25** | **~166** | | |
 
 ---
 
@@ -61,7 +61,7 @@
 - [x] **P0.3.2** Read Python SDK v2 docs (quickstart, what's new, migration). Confirm the import paths used in PROJECT.md §12.1 and fix the doc if they differ. Pin the `mcp` version. *Done when:* PROJECT.md §12.1 verified.
 - [x] **P0.3.3** `toys/hello_server.py`: `MCPServer("hello")` with 1 tool (`add(a,b)`), 1 resource template (`hello://greeting/{name}`), 1 prompt. *Done when:* it runs over stdio without errors.
 - [ ] **P0.3.4** Connect MCP Inspector over stdio. Call the tool, read the resource, get the prompt. *Done when:* screenshot in `docs/notes/`.
-- [ ] **P0.3.5** Run the same server over Streamable HTTP (`127.0.0.1:8000/mcp`) and connect Inspector. *Done when:* the tool call works over HTTP.
+- [x] **P0.3.5** Run the same server over Streamable HTTP (`127.0.0.1:8000/mcp`) and connect Inspector. *Done when:* the tool call works over HTTP.
 - [ ] **P0.3.6** Register in Claude Code (`claude mcp add --transport stdio hello -- uv run python toys/hello_server.py`) and ask Claude to use the tool. *Done when:* `/mcp` shows connected and the tool call appears in the transcript.
 - [x] **P0.3.7** In-memory test: `async with Client(server)` → call `add`. *Done when:* the pytest passes.
 - [ ] **P0.3.8** Experiment: add a `print()` in a stdio tool, observe the breakage in Inspector, then fix it with stderr logging. *Done when:* the learning log entry is written.

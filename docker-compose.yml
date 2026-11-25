@@ -1,0 +1,24 @@
+# Local dev database: Postgres 16 + pgvector (ADR-003).
+# Dev-only credentials; bound to localhost. App roles synop_reader/synop_writer come in P1.1.5.
+name: synop-tree
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-synop}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-synop}
+      POSTGRES_DB: ${POSTGRES_DB:-synop}
+    ports:
+      - "127.0.0.1:${SYNOP_DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
+
+volumes:
+  pgdata:

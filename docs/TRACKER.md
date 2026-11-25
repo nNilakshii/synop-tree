@@ -12,21 +12,21 @@
 
 ## Now
 - **Current phase:** 0
-- **Current task:** P0.3.3
+- **Current task:** P0.3.4
 - **Started:** ____ (PT)
 
 ## Progress
 
 | Phase | Name | Tasks | Done | Est. h | Start (PT) | End (PT) |
 |---|---|---|---|---|---|---|
-| 0 | Foundations & MCP 101 | 30 | 21 | 12 | | |
+| 0 | Foundations & MCP 101 | 30 | 22 | 12 | | |
 | 1 | Walking skeleton | 24 | 0 | 16 | | |
 | 2 | Robust indexer | 44 | 0 | 30 | | |
 | 3 | Search + production MCP server | 36 | 0 | 26 | | |
 | 4 | Incremental updates | 27 | 0 | 24 | | |
 | 5 | Evaluation | 40 | 0 | 42 | | |
 | 6 | Ship | 17 | 0 | 16 | | |
-| | **Total** | **218** | **21** | **~166** | | |
+| | **Total** | **218** | **22** | **~166** | | |
 
 ---
 
@@ -59,7 +59,7 @@
 ### P0.3 MCP 101 (learning)
 - [x] **P0.3.1** Read the MCP 2026-07-28 spec: Architecture, Base Protocol, Server Features, Security. Write ≤ 15 lines of notes in `docs/notes/mcp.md` (stateless requests, `_meta`, tools/resources/prompts, deprecations). *Done when:* notes committed.
 - [x] **P0.3.2** Read Python SDK v2 docs (quickstart, what's new, migration). Confirm the import paths used in PROJECT.md §12.1 and fix the doc if they differ. Pin the `mcp` version. *Done when:* PROJECT.md §12.1 verified.
-- [ ] **P0.3.3** `toys/hello_server.py`: `MCPServer("hello")` with 1 tool (`add(a,b)`), 1 resource template (`hello://greeting/{name}`), 1 prompt. *Done when:* it runs over stdio without errors.
+- [x] **P0.3.3** `toys/hello_server.py`: `MCPServer("hello")` with 1 tool (`add(a,b)`), 1 resource template (`hello://greeting/{name}`), 1 prompt. *Done when:* it runs over stdio without errors.
 - [ ] **P0.3.4** Connect MCP Inspector over stdio. Call the tool, read the resource, get the prompt. *Done when:* screenshot in `docs/notes/`.
 - [ ] **P0.3.5** Run the same server over Streamable HTTP (`127.0.0.1:8000/mcp`) and connect Inspector. *Done when:* the tool call works over HTTP.
 - [ ] **P0.3.6** Register in Claude Code (`claude mcp add --transport stdio hello -- uv run python toys/hello_server.py`) and ask Claude to use the tool. *Done when:* `/mcp` shows connected and the tool call appears in the transcript.

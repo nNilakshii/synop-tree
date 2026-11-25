@@ -55,7 +55,7 @@ select = [
 "toys/**" = ["T20"]     # P0.3 learning scripts may print
 
 [tool.pyright]
-include = ["src", "tests"]
+include = ["src", "tests", "toys"]
 pythonVersion = "3.12"
 typeCheckingMode = "strict"
 reportUnnecessaryTypeIgnoreComment = "error"

@@ -50,6 +50,9 @@ select = [
     "RUF",
 ]
 
+[tool.ruff.lint.isort]
+known-first-party = ["synop_tree", "toys"]
+
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["S101"]   # assert is fine in tests
 "toys/**" = ["T20"]     # P0.3 learning scripts may print
@@ -64,6 +67,7 @@ venv = ".venv"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 addopts = ["-ra", "--strict-markers", "-m", "not live"]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"

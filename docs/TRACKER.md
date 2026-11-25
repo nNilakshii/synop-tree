@@ -19,14 +19,14 @@
 
 | Phase | Name | Tasks | Done | Est. h | Start (PT) | End (PT) |
 |---|---|---|---|---|---|---|
-| 0 | Foundations & MCP 101 | 30 | 9 | 12 | | |
+| 0 | Foundations & MCP 101 | 30 | 10 | 12 | | |
 | 1 | Walking skeleton | 24 | 0 | 16 | | |
 | 2 | Robust indexer | 44 | 0 | 30 | | |
 | 3 | Search + production MCP server | 36 | 0 | 26 | | |
 | 4 | Incremental updates | 27 | 0 | 24 | | |
 | 5 | Evaluation | 40 | 0 | 42 | | |
 | 6 | Ship | 17 | 0 | 16 | | |
-| | **Total** | **218** | **9** | **~166** | | |
+| | **Total** | **218** | **10** | **~166** | | |
 
 ---
 
@@ -49,7 +49,7 @@
 ### P0.2 Claude Code workflow
 - [x] **P0.2.1** Review the provided root `CLAUDE.md` and adjust it to taste. *Done when:* a new Claude Code session can summarize the project rules back correctly.
 - [ ] **P0.2.2** `.claude/settings.json`: deny `Read(./.env)`, allow `uv run *`, `make *`, `docker compose *`, read-only git. *Done when:* Claude can't read `.env` (test it).
-- [ ] **P0.2.3** Test the provided slash command `.claude/commands/next-task.md` (reads TRACKER "Now", picks the first unchecked task, restates done-when, plans). *Done when:* `/next-task` returns P0.2.4.
+- [x] **P0.2.3** Test the provided slash command `.claude/commands/next-task.md` (reads TRACKER "Now", picks the first unchecked task, restates done-when, plans). *Done when:* `/next-task` returns the first unchecked task of the current phase (verified 2026-11-24: picked P0.1.1, then P0.1.4).
 - [ ] **P0.2.4** Test the provided slash command `.claude/commands/finish-task.md` (runs checks, ticks the box, updates "Now", commits `<ID>: …`). *Done when:* used successfully once.
 - [ ] **P0.2.5** PostToolUse hook: `ruff format` on edited `*.py`. *Done when:* an unformatted edit gets auto-formatted.
 - [ ] **P0.2.6** Subagent `.claude/agents/reviewer.md` (correctness, security, tests, PROJECT.md rules). *Done when:* it reviews one diff with useful comments.

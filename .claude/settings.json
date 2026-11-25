@@ -21,5 +21,19 @@
       "Bash(git show *)",
       "Bash(git branch)"
     ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/ruff-format.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
   }
 }

@@ -12,21 +12,21 @@
 
 ## Now
 - **Current phase:** 0
-- **Current task:** P0.2.5
+- **Current task:** P0.2.6
 - **Started:** ____ (PT)
 
 ## Progress
 
 | Phase | Name | Tasks | Done | Est. h | Start (PT) | End (PT) |
 |---|---|---|---|---|---|---|
-| 0 | Foundations & MCP 101 | 30 | 15 | 12 | | |
+| 0 | Foundations & MCP 101 | 30 | 16 | 12 | | |
 | 1 | Walking skeleton | 24 | 0 | 16 | | |
 | 2 | Robust indexer | 44 | 0 | 30 | | |
 | 3 | Search + production MCP server | 36 | 0 | 26 | | |
 | 4 | Incremental updates | 27 | 0 | 24 | | |
 | 5 | Evaluation | 40 | 0 | 42 | | |
 | 6 | Ship | 17 | 0 | 16 | | |
-| | **Total** | **218** | **15** | **~166** | | |
+| | **Total** | **218** | **16** | **~166** | | |
 
 ---
 
@@ -51,7 +51,7 @@
 - [x] **P0.2.2** `.claude/settings.json`: deny `Read(./.env)`, allow `uv run *`, `make *`, `docker compose *`, read-only git. *Done when:* Claude can't read `.env` (test it).
 - [x] **P0.2.3** Test the provided slash command `.claude/commands/next-task.md` (reads TRACKER "Now", picks the first unchecked task, restates done-when, plans). *Done when:* `/next-task` returns the first unchecked task of the current phase (verified 2026-11-24: picked P0.1.1, then P0.1.4).
 - [x] **P0.2.4** Test the provided slash command `.claude/commands/finish-task.md` (runs checks, ticks the box, updates "Now", commits `<ID>: …`). *Done when:* used successfully once.
-- [ ] **P0.2.5** PostToolUse hook: `ruff format` on edited `*.py`. *Done when:* an unformatted edit gets auto-formatted.
+- [x] **P0.2.5** PostToolUse hook: `ruff format` on edited `*.py`. *Done when:* an unformatted edit gets auto-formatted.
 - [ ] **P0.2.6** Subagent `.claude/agents/reviewer.md` (correctness, security, tests, PROJECT.md rules). *Done when:* it reviews one diff with useful comments.
 - [ ] **P0.2.7** Slash command `.claude/commands/adr.md` that drafts `docs/adr/NNN-*.md`. Create ADR-001…012 stubs from §6. *Done when:* the 12 files exist.
 - [ ] **P0.2.8** `docs/notes/learning-log.md` template (date, task ID, what I learned, what surprised me). *Done when:* the first entry is written.

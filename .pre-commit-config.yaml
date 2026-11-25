@@ -1,0 +1,21 @@
+# Install once: uv run pre-commit install
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: check-yaml
+
+  # ruff runs through uv so it uses the version pinned in uv.lock.
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff (lint, autofix)
+        entry: uv run ruff check --fix
+        language: system
+        types_or: [python, pyi]
+      - id: ruff-format
+        name: ruff (format)
+        entry: uv run ruff format
+        language: system
+        types_or: [python, pyi]
